@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Scoop - EMERGENCY ALERT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto+Condensed:wght@400;700&family=Creepster&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a1a1a;
+        }
+
+        .emergency-banner {
+            background: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            animation: emergency 1s infinite;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border: 5px solid #fff;
+        }
+
+        @keyframes emergency {
+            0%, 100% { background: #ff0000; transform: scale(1); }
+            50% { background: #8b0000; transform: scale(1.02); }
+        }
+
+        .newspaper-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #f4f1ea;
+            box-shadow: 0 30px 100px rgba(255,0,0,0.3);
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newspaper-container::before {
+            content: '⚠️ BIOHAZARD ⚠️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(255,0,0,0.08);
+            font-weight: 900;
+            letter-spacing: 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 5px double #8b0000;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .masthead {
+            font-family: 'Creepster', cursive;
+            font-size: 72px;
+            color: #8b0000;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 8px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .date-line {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #444;
+            border-top: 2px solid #8b0000;
+            border-bottom: 2px solid #8b0000;
+            padding: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .headline {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .subheadline {
+            font-size: 28px;
+            color: #8b0000;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            font-style: italic;
+            border-bottom: 3px solid #8b0000;
+            padding-bottom: 20px;
+        }
+
+        .hero-section {
+            position: relative;
+            margin-bottom: 40px;
+            border: 8px solid #1a1a1a;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(120%) brightness(0.9);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #ff5722;
+            font-weight: 700;
+        }
+
+        .content-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-text {
+            font-size: 22px;
+            line-height: 2;
+            text-align: justify;
+            margin-bottom: 40px;
+            border-left: 10px solid #8b0000;
+            padding-left: 30px;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-text::first-letter {
+            font-size: 100px;
+            float: left;
+            line-height: 0.7;
+            padding-right: 20px;
+            color: #8b0000;
+            font-weight: 900;
+        }
+
+        .comparison-section {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 36px;
+            color: #ffeb3b;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            font-family: 'Creepster', cursive;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comparison-card {
+            background: #2a2a2a;
+            border: 3px solid;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .comparison-card.winner {
+            border-color: #ff0000;
+            background: #3a1a1a;
+            box-shadow: 0 0 30px rgba(255,0,0,0.3);
+        }
+
+        .comparison-card.loser {
+            border-color: #4caf50;
+        }
+
+        .comparison-card.mystery {
+            border-color: #ffeb3b;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .winner .card-title { color: #ff0000; }
+        .loser .card-title { color: #4caf50; }
+        .mystery .card-title { color: #ffeb3b; }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: #444;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .card-desc {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .roast-terminal {
+            background: #0d1117;
+            border: 3px solid #30363d;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .dot { width: 15px; height: 15px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-content {
+            color: #7ee787;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .terminal-line {
+            margin-bottom: 10px;
+        }
+
+        .command { color: #79c0ff; }
+        .error { color: #f85149; }
+        .warning { color: #ffa657; }
+        .success { color: #7ee787; }
+
+        .angle-attack {
+            background: #ffebee;
+            border: 4px solid #c62828;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .angle-attack h3 {
+            color: #c62828;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .angle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .angle-card {
+            background: white;
+            border-left: 8px solid #c62828;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .angle-card h4 {
+            color: #c62828;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .angle-card p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .public-outrage {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 50px;
+            margin: 40px 0;
+        }
+
+        .outrage-title {
+            color: #ff5722;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .outrage-list {
+            list-style: none;
+        }
+
+        .outrage-item {
+            background: #2a2a2a;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff5722;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .outrage-item::before {
+            content: "💀 ";
+            margin-right: 15px;
+            font-size: 28px;
+        }
+
+        .final-verdict {
+            background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+            color: white;
+            padding: 60px;
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-verdict::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80">☠️</text></svg>') center/100px repeat;
+            opacity: 0.1;
+        }
+
+        .verdict-title {
+            font-size: 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .verdict-text {
+            font-size: 28px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 5px double #1a1a1a;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            background: #f5f5f5;
+            padding: 40px;
+            margin: 0 -50px -50px -50px;
+        }
+
+        .biohazard-stamp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 160px;
+            height: 160px;
+            border: 6px solid #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0000;
+            font-weight: 900;
+            font-size: 18px;
+            text-align: center;
+            transform: rotate(-30deg);
+            opacity: 0.9;
+            pointer-events: none;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 10px 30px rgba(255,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 1000;
+            font-family: 'Creepster', cursive;
+        }
+
+        @media (max-width: 768px) {
+            .emergency-banner { font-size: 16px; padding: 15px; }
+            .masthead { font-size: 48px; }
+            .headline { font-size: 36px; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .angle-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 400px; }
+            .newspaper-container { padding: 25px; }
+            .biohazard-stamp { width: 120px; height: 120px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="emergency-banner">
+        🚨 WARNING: EXTREME VISUAL HAZARD DETECTED 🚨
+    </div>
+
+    <div class="newspaper-container">
+        <div class="header">
+            <div class="masthead">The Daily Scoop</div>
+            <div class="tagline">Emergency Biological Hazard Edition</div>
+            <div class="date-line">
+                <span>ALERT LEVEL: CRITICAL</span>
+                <span>Gujranwala Quarantine Zone</span>
+                <span>Date: April 9, 2026</span>
+            </div>
+        </div>
+
+        <h1 class="headline">The Khachar Has Evolved</h1>
+        <div class="subheadline">
+            "When Donkey met Horse, they created beauty. When Ugliness met Stupidity, they created Shahzaib."
+        </div>
+
+        <div class="hero-section">
+            <img src="images/shahzaib.jpg" alt="Shahzaib - The Abomination" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-title">Subject: Shahzaib</div>
+                <div class="hero-subtitle">Classification: UNIDENTIFIED BIOLOGICAL DISASTER</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="intro-text">
+                Scientists at the <strong>Center for Extreme Ugliness Studies</strong> have confirmed what locals have suspected for years: <strong>Shahzaib</strong> is not human. This creature—born when a donkey and horse's rejected DNA combined with cosmic radiation and pure bad luck—represents a new low in evolutionary history. <strong>Homo Khacharus Maximus</strong>, they're calling it. Or simply: <strong>"Bhai yeh kya chutiya hai?"</strong>
+            </div>
+
+            <div class="comparison-section">
+                <div class="comparison-title">🔬 The Evolution Disaster 🔬</div>
+                <div class="comparison-grid">
+                    <div class="comparison-card loser">
+                        <div class="card-title">🐴 Khachar (Mule)</div>
+                        <div class="card-image">🐴</div>
+                        <div class="card-desc">
+                            <strong>Donkey + Horse</strong><br>
+                            Result: Strong, useful animal<br>
+                            Dignity: Intact<br>
+                            Face: Normal<br>
+                            <em>Verdict: Respectable</em>
+                        </div>
+                    </div>
+                    <div class="comparison-card winner">
+                        <div class="card-title">👹 Shahzaib</div>
+                        <div class="card-image" style="font-size: 100px;">💩</div>
+                        <div class="card-desc">
+                            <strong>Ugliness + Stupidity</strong><br>
+                            Result: <strong>DISASTER</strong><br>
+                            Dignity: <strong>DESTROYED</strong><br>
+                            Face: <strong>WAR CRIME</strong><br>
+                            <em>Verdict: <strong>ABOMINATION</strong></em>
+                        </div>
+                    </div>
+                    <div class="comparison-card mystery">
+                        <div class="card-title">👽 Mystery</div>
+                        <div class="card-image">👽</div>
+                        <div class="card-desc">
+                            <strong>Alien Theory</strong><br>
+                            NASA investigating<br>
+                            "Not from this planet"<br>
+                            "Send it back"<br>
+                            <em>Verdict: Deport Immediately</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roast-terminal">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="color: #8b949e; margin-left: 15px;">ugly_analyzer.exe — running</span>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line"><span class="command">$ analyze_face --subject=shahzaib --mode=brutal</span></div>
+                    <div class="terminal-line"><span class="error">[ERROR] Face not found in database</span></div>
+                    <div class="terminal-line"><span class="error">[ERROR] Object classified as "biological weapon"</span></div>
+                    <div class="terminal-line"><span class="warning">[WARNING] Side profile matches Suneo (confidence: 99.9%)</span></div>
+                    <div class="terminal-line"><span class="warning">[WARNING] Front view triggers PK alien protocol</span></div>
+                    <div class="terminal-line"><span class="error">[CRITICAL] Rear view causes instant blindness</span></div>
+                    <div class="terminal-line"><span class="success">[RESULT] Overall classification: MADARCHOD TATTA</span></div>
+                    <div class="terminal-line"><span class="command">$ exit --reason="cannot_process_this_ugliness"</span></div>
+                    <div class="terminal-line" style="color: #ff5f56;">System crashed. Reason: Extreme visual trauma.</div>
+                </div>
+            </div>
+
+            <div class="angle-attack">
+                <h3>🎯 The 360° Destruction Protocol 🎯</h3>
+                <div class="angle-grid">
+                    <div class="angle-card">
+                        <h4>🔭 Samne Se (Front View)</h4>
+                        <p><strong>Aankhein:</strong> Itni badi ke bina telescope ke nahi dekhi jaati. <strong>Bhenchod, blink karte waqt hawa ka jhonka ata hai!</strong> Naak aise beech mein ghussi hui jaise kisi ne gusse mein hammer maara ho. Hont itne motey ke iska apna gravitational pull hai. <strong>Madarchod, PK wala alien lagta hai—lekin woh Aamir Khan tha, cute tha! Yeh toh asli wala hai, daraavna wala!</strong></p>
+                    </div>
+                    <div class="angle-card">
+                        <h4>📐 Side Se (Side View)</h4>
+                        <p><strong>Profile:</strong> Gol shakal, chipki hui naak, aage nikla hua munh. <strong>Suneo jaisi shakal hai bilkul!</strong> Woh Doraemon ka chipku dost jo hamesha jhoot bolta tha—bas waisi hi shakal, waisi hi beghairat harkatein! <strong>Chootmarika, cartoon se nikla hua lagta hai!</strong></p>
+                    </div>
+                    <div class="angle-card">
+                        <h4>🍑 Piche Se (Rear View)</h4>
+                        <p><strong>Gardan:</strong> Itni patli ke hawa tez chale toh sar ud jaye. <strong>Baal:</strong> Aise bikhre hue jaise isne bijli ke taar mein sir daala ho. <strong>Overall:</strong> Pure gandu lagta hai! <strong>Gandu darjay awal, beghairat number one! Haraami, shakal se hi pata chalta hai kitna bara chootiya hai!</strong></p>
+                    </div>
+                    <div class="angle-card">
+                        <h4>☠️ Overall Verdict</h4>
+                        <p><strong>360° ka 360° ganda!</strong> Har angle se alag gandagi. Samne se alien, side se cartoon character, piche se gandu. <strong>Madarchod, isse ganda koi nahi dekha!</strong> Khachar bhi iske saamne Brad Pitt lagta hai. <strong>Donkey bhi kehti hai "thank God I'm not that ugly!"</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="public-outrage">
+                <div class="outrage-title">💀 Public Trauma Reports 💀</div>
+                <ul class="outrage-list">
+                    <li class="outrage-item">
+                        <strong>"Bhenchod, isko dekh ke meri dadi ki jaan chali gayi! Bol rahi thi 'yeh shaitan hai!'"</strong> — Mohalla Resident (Still in therapy)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Madarchod, mirror toot gaya jab isne apni shakal dekhi! 7 saal ki badua lagi hai!"</strong> — Mirror Seller (Bankrupt)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Side se Suneo lagta hai, samne se PK, piche se gandu! Cartoon, alien, aur chootiya—ek hi package mein!"</strong> — Ex-Friend (Now Blind)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Itna ganda ke camera bhi focus nahi karta! Phone ka front cam permanent disable ho gaya!"</strong> — Mobile Repair Shop (Too many complaints)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Khachar bhi iske saamne handsome lagta hai! Gadha bhi kehta hai 'thank God I'm not Shahzaib!'"</strong> — Local Farmer (Animal Expert)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Chootmarika, Snapchat filter bhi ispe kaam nahi karta! 'Error: Face not recognized' aata hai!"</strong> — Social Media Influencer (Gave Up)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Randi ka bacha, shakal se hi haraamkhor lagta hai! Baap ne maafi mangi 'beta maaf karo, yeh kya paida kar diya!'"</strong> — Angry Uncle (Disowned Nephew)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Lun ka baal, isse ganda koi nahi dekha maine! 40 saal se barber hoon, aise kaan nahi dekhe!"</strong> — Head Barber (Retired)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Kameena, iski shakal dekh ke meri shaadi toot gayi! Dulhan bhaag gayi kehti 'main yeh nahi sehti!'"</strong> — Ex-Fiancée (Lucky Escape, Married Doctor Now)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Beghairat, rooz subah mirror mein khud ko Shah Rukh samajhta hai! Dimaag ka dahi ho gaya hai!"</strong> — Psychiatrist (Admitted to Mental Hospital)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"NASA ne pucha 'kya yeh alien signal hai?' Maine kaha 'nahi, yeh Gujranwala ka Shahzaib hai!'"</strong> — Space Scientist (Still Shocked)
+                    </li>
+                    <li class="outrage-item">
+                        <strong>"Gandu lagta hai bilkul! Piche se dekh ke rickshaw wale ne accident kar liya!"</strong> — Traffic Police (Multiple FIRs)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="final-verdict">
+                <div class="verdict-title">☠️ FINAL JUDGMENT ☠️</div>
+                <div class="verdict-text">
+                    <strong>Shahzaib</strong> is hereby declared a <strong>CLASS-A BIOLOGICAL HAZARD</strong>. 
+                    <br><br>
+                    When Donkey met Horse, they created the <strong>Khachar</strong>—a noble, useful creature.
+                    <br><br>
+                    When <strong>Ugliness</strong> met <strong>Stupidity</strong> met <strong>Bad Luck</strong> met <strong>Cosmic Radiation</strong>, they created <strong>THIS</strong>—an abomination so complete that mirrors weep, cameras crash, and humans flee.
+                    <br><br>
+                    <strong style="font-size: 36px; color: #ffeb3b;">MADARCHOD TATTA CONFIRMED</strong>
+                    <br><br>
+                    <em style="font-size: 20px;">"Isse ganda koi nahi. Isse beghairat koi nahi. Isse bara chootiya koi nahi."</em>
+                    <br><br>
+                    — Supreme Court of Ugliness, 2026
+                </div>
+            </div>
+
+            <div style="background: #f5f5f5; border: 3px solid #1a1a1a; padding: 30px; margin: 40px 0; text-align: center;">
+                <h3 style="font-size: 28px; margin-bottom: 20px; text-transform: uppercase;">📋 Wanted: Dead or Alive (Preferably Dead)</h3>
+                <p style="font-size: 20px; line-height: 2;">
+                    <strong>Name:</strong> Shahzaib "The Khachar" "Suneo Lookalike" "PK Wannabe"<br>
+                    <strong>Crimes:</strong> Being Ugly, Breaking Mirrors, Scaring Children, Causing Traffic Accidents<br>
+                    <strong>Reward:</strong> 10 Lakh Rupees (or a face transplant)<br>
+                    <strong>Warning:</strong> Do not approach without protective eyewear. May cause permanent trauma.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p style="font-size: 18px; margin-bottom: 15px;"><strong>⚠️ The Daily Scoop Emergency Edition ⚠️</strong></p>
+            <p>This newspaper is not responsible for any nightmares, vomiting, or sudden blindness caused by reading about Shahzaib.</p>
+            <p style="margin-top: 15px;">All complaints should be directed to: <strong>The Creator (for making this mistake)</strong></p>
+            <p style="margin-top: 15px; font-size: 12px; color: #999;">© 2026 The Daily Scoop | Printed on Fireproof Paper | Distributed in Sealed Containers</p>
+        </div>
+    </div>
+
+    <div class="biohazard-stamp">
+        BIO<br>HAZARD<br>☠️
+    </div>
+</body>
+</html>
